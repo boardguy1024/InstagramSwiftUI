@@ -10,10 +10,53 @@ import Foundation
 import SwiftUI
 
 struct ExploreView: View {
+    
+    var exampleDataList = [PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable()]
+    
+    @State var isSearching: Bool = false
     @State var searchText = String()
     var body: some View {
-        TextField("Search.....", text: self.$searchText)
+        
+        NavigationView {
+            VStack {
+                TextField("Search.....", text: self.$searchText, onEditingChanged: { changed in
+                    
+                }) {
+                    self.search()
+                }.padding()
+                
+                if isSearching {
+                    
+                    List {
+                        ForEach(0 ..< 3, content: { i in
+                            PostCell().listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        })
+                    }
+                    
+                } else {
+                    QGrid(self.exampleDataList, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
+                        
+                        post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
+                    }
+                }
+                
+            }.navigationBarTitle("Explore", displayMode: .inline)
+        }
     }
+    
+    private func search() {
+        if self.searchText == "" {
+            self.isSearching = false
+        } else {
+            self.isSearching = true
+        }
+    }
+}
+
+struct PostIdentifiable: Identifiable {
+    var id = UUID()
+    
+    var image = Image("test").resizable()
 }
 
 struct ExploreView_Preview: PreviewProvider {
