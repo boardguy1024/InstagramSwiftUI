@@ -13,6 +13,14 @@
 		A206209F24AC5A8000C91BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A206209E24AC5A8000C91BCF /* Assets.xcassets */; };
 		A20620A224AC5A8000C91BCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20620A124AC5A8000C91BCF /* Preview Assets.xcassets */; };
 		A20620A524AC5A8000C91BCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20620A324AC5A8000C91BCF /* LaunchScreen.storyboard */; };
+		A20620AD24AC5BE900C91BCF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620AC24AC5BE900C91BCF /* HomePage.swift */; };
+		A20620AF24AC5BFA00C91BCF /* ExplorePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620AE24AC5BFA00C91BCF /* ExplorePage.swift */; };
+		A20620B124AC5C1300C91BCF /* PostingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620B024AC5C1300C91BCF /* PostingPage.swift */; };
+		A20620B324AC5C2F00C91BCF /* NotificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620B224AC5C2F00C91BCF /* NotificationPage.swift */; };
+		A20620B524AC5C4900C91BCF /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620B424AC5C4900C91BCF /* ProfilePage.swift */; };
+		A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620B624AC5C6200C91BCF /* SettingsPage.swift */; };
+		A20620BF24AC5D5300C91BCF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620BE24AC5D5300C91BCF /* PostCell.swift */; };
+		A20620C124AD604200C91BCF /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C024AD604100C91BCF /* Grid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		A20620A124AC5A8000C91BCF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A20620A424AC5A8000C91BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A20620A624AC5A8000C91BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20620AC24AC5BE900C91BCF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		A20620AE24AC5BFA00C91BCF /* ExplorePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePage.swift; sourceTree = "<group>"; };
+		A20620B024AC5C1300C91BCF /* PostingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingPage.swift; sourceTree = "<group>"; };
+		A20620B224AC5C2F00C91BCF /* NotificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPage.swift; sourceTree = "<group>"; };
+		A20620B424AC5C4900C91BCF /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		A20620B624AC5C6200C91BCF /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		A20620BE24AC5D5300C91BCF /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		A20620C024AD604100C91BCF /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,12 @@
 		A206209724AC5A7D00C91BCF /* InstagramSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A20620B824AC5CA700C91BCF /* Home */,
+				A20620B924AC5CB100C91BCF /* Explore */,
+				A20620BB24AC5CCB00C91BCF /* Notification */,
+				A20620BC24AC5CE000C91BCF /* Profile */,
+				A20620BA24AC5CBC00C91BCF /* Posting */,
+				A20620BD24AC5CEA00C91BCF /* Settings */,
 				A206209824AC5A7D00C91BCF /* AppDelegate.swift */,
 				A206209A24AC5A7D00C91BCF /* SceneDelegate.swift */,
 				A206209C24AC5A7D00C91BCF /* ContentView.swift */,
@@ -73,6 +95,56 @@
 				A20620A124AC5A8000C91BCF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A20620B824AC5CA700C91BCF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A20620AC24AC5BE900C91BCF /* HomePage.swift */,
+				A20620BE24AC5D5300C91BCF /* PostCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A20620B924AC5CB100C91BCF /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				A20620AE24AC5BFA00C91BCF /* ExplorePage.swift */,
+				A20620C024AD604100C91BCF /* Grid.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		A20620BA24AC5CBC00C91BCF /* Posting */ = {
+			isa = PBXGroup;
+			children = (
+				A20620B024AC5C1300C91BCF /* PostingPage.swift */,
+			);
+			path = Posting;
+			sourceTree = "<group>";
+		};
+		A20620BB24AC5CCB00C91BCF /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				A20620B224AC5C2F00C91BCF /* NotificationPage.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		A20620BC24AC5CE000C91BCF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A20620B424AC5C4900C91BCF /* ProfilePage.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A20620BD24AC5CEA00C91BCF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A20620B624AC5C6200C91BCF /* SettingsPage.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +218,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */,
 				A206209924AC5A7D00C91BCF /* AppDelegate.swift in Sources */,
+				A20620B124AC5C1300C91BCF /* PostingPage.swift in Sources */,
+				A20620B524AC5C4900C91BCF /* ProfilePage.swift in Sources */,
+				A20620C124AD604200C91BCF /* Grid.swift in Sources */,
 				A206209B24AC5A7D00C91BCF /* SceneDelegate.swift in Sources */,
 				A206209D24AC5A7D00C91BCF /* ContentView.swift in Sources */,
+				A20620AF24AC5BFA00C91BCF /* ExplorePage.swift in Sources */,
+				A20620B324AC5C2F00C91BCF /* NotificationPage.swift in Sources */,
+				A20620AD24AC5BE900C91BCF /* HomePage.swift in Sources */,
+				A20620BF24AC5D5300C91BCF /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
