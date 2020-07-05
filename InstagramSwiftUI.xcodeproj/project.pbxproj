@@ -21,6 +21,8 @@
 		A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620B624AC5C6200C91BCF /* SettingsPage.swift */; };
 		A20620BF24AC5D5300C91BCF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620BE24AC5D5300C91BCF /* PostCell.swift */; };
 		A20620C124AD604200C91BCF /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C024AD604100C91BCF /* Grid.swift */; };
+		A20620C324AD6FE900C91BCF /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C224AD6FE900C91BCF /* MultilineTextView.swift */; };
+		A20620C524AD7A1E00C91BCF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C424AD7A1E00C91BCF /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		A20620B624AC5C6200C91BCF /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		A20620BE24AC5D5300C91BCF /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A20620C024AD604100C91BCF /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		A20620C224AD6FE900C91BCF /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
+		A20620C424AD7A1E00C91BCF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				A20620B024AC5C1300C91BCF /* PostingPage.swift */,
+				A20620C224AD6FE900C91BCF /* MultilineTextView.swift */,
+				A20620C424AD7A1E00C91BCF /* ImagePicker.swift */,
 			);
 			path = Posting;
 			sourceTree = "<group>";
@@ -218,7 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20620C524AD7A1E00C91BCF /* ImagePicker.swift in Sources */,
 				A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */,
+				A20620C324AD6FE900C91BCF /* MultilineTextView.swift in Sources */,
 				A206209924AC5A7D00C91BCF /* AppDelegate.swift in Sources */,
 				A20620B124AC5C1300C91BCF /* PostingPage.swift in Sources */,
 				A20620B524AC5C4900C91BCF /* ProfilePage.swift in Sources */,
