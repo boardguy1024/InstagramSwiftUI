@@ -9,9 +9,11 @@
 import Foundation
 import SwiftUI
 
+var exampleDataList = [PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable()]
+
 struct ExploreView: View {
     
-    var exampleDataList = [PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable()]
+    
     
     @State var isSearching: Bool = false
     @State var searchText = String()
@@ -34,7 +36,7 @@ struct ExploreView: View {
                     }
                     
                 } else {
-                    QGrid(self.exampleDataList, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
+                    QGrid(exampleDataList, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
                         
                         post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
                     }

@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct SettingsView: View {
+    var body: some View {
+        Text("aaa")
+    }
+}
+
+struct SettingsView_Preview: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}

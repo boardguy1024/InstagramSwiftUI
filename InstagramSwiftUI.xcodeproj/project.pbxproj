@@ -24,6 +24,7 @@
 		A20620C324AD6FE900C91BCF /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C224AD6FE900C91BCF /* MultilineTextView.swift */; };
 		A20620C524AD7A1E00C91BCF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C424AD7A1E00C91BCF /* ImagePicker.swift */; };
 		A2F3209624B18A67004E1B78 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3209524B18A67004E1B78 /* NotificationCell.swift */; };
+		A2F3209824B19FE9004E1B78 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3209724B19FE9004E1B78 /* ProfileViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A20620C224AD6FE900C91BCF /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
 		A20620C424AD7A1E00C91BCF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A2F3209524B18A67004E1B78 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		A2F3209724B19FE9004E1B78 /* ProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A20620B424AC5C4900C91BCF /* ProfilePage.swift */,
+				A2F3209724B19FE9004E1B78 /* ProfileViewHeader.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */,
 				A20620C324AD6FE900C91BCF /* MultilineTextView.swift in Sources */,
 				A206209924AC5A7D00C91BCF /* AppDelegate.swift in Sources */,
+				A2F3209824B19FE9004E1B78 /* ProfileViewHeader.swift in Sources */,
 				A20620B124AC5C1300C91BCF /* PostingPage.swift in Sources */,
 				A20620B524AC5C4900C91BCF /* ProfilePage.swift in Sources */,
 				A2F3209624B18A67004E1B78 /* NotificationCell.swift in Sources */,
