@@ -38,7 +38,12 @@ struct ExploreView: View {
                 } else {
                     QGrid(exampleDataList, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
                         
-                        post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
+                        NavigationLink(destination: SinglePostView(), label:  {
+                            post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
+                        }).buttonStyle(PlainButtonStyle())
+                        
+    
+                        
                     }
                 }
                 

@@ -28,6 +28,7 @@
 		A2BE186C24B2B34D00483CE5 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE186B24B2B34D00483CE5 /* TabViewController.swift */; };
 		A2F3209624B18A67004E1B78 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3209524B18A67004E1B78 /* NotificationCell.swift */; };
 		A2F3209824B19FE9004E1B78 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3209724B19FE9004E1B78 /* ProfileViewHeader.swift */; };
+		A2F4A7E924B6A9BC00D0B553 /* SinglePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4A7E824B6A9BC00D0B553 /* SinglePostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		A2BE186B24B2B34D00483CE5 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		A2F3209524B18A67004E1B78 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		A2F3209724B19FE9004E1B78 /* ProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeader.swift; sourceTree = "<group>"; };
+		A2F4A7E824B6A9BC00D0B553 /* SinglePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				A20620AE24AC5BFA00C91BCF /* ExplorePage.swift */,
 				A20620C024AD604100C91BCF /* Grid.swift */,
+				A2F4A7E824B6A9BC00D0B553 /* SinglePostView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				A20620AF24AC5BFA00C91BCF /* ExplorePage.swift in Sources */,
 				A20620B324AC5C2F00C91BCF /* NotificationPage.swift in Sources */,
 				A20620AD24AC5BE900C91BCF /* HomePage.swift in Sources */,
+				A2F4A7E924B6A9BC00D0B553 /* SinglePostView.swift in Sources */,
 				A20620BF24AC5D5300C91BCF /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

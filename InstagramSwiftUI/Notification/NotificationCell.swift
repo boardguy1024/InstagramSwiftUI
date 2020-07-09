@@ -13,13 +13,16 @@ struct NotificationCell: View {
     var body: some View {
         VStack {
             HStack (alignment: .top) {
-                Image("test").resizable().aspectRatio(contentMode: .fill).frame(width: 50, height: 50, alignment: .center).cornerRadius(5)
-                VStack (alignment: .leading) {
-                    Text("Park like your post").font(.callout)
-                    Text("One hour ago").font(.caption).foregroundColor(.gray)
-                }
-                Spacer()
-                }.padding()
+                NavigationLink(destination: SinglePostView(), label: {
+                    Image("test").resizable().aspectRatio(contentMode: .fill).frame(width: 50, height: 50, alignment: .center).cornerRadius(5)
+                    VStack (alignment: .leading) {
+                        Text("Park like your post").font(.callout)
+                        Text("One hour ago").font(.caption).foregroundColor(.gray)
+                    }
+                    Spacer()
+                }).buttonStyle(PlainButtonStyle())
+                
+            }.padding()
         }.background(Color.white).cornerRadius(10).shadow(radius: 8).padding()
     }
 }
