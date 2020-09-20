@@ -11,9 +11,12 @@ import SwiftUI
 
 struct NotificationView: View {
     
-    init() {
+    @ObservedObject var dataHandler: DataHandler
+    
+    init(dataHandler: DataHandler) {
         //ListのSeparatorColorを設定
         UITableView.appearance().separatorColor = .clear
+        self.dataHandler = dataHandler
     }
     var body: some View {
         NavigationView {
@@ -26,8 +29,8 @@ struct NotificationView: View {
     }
 }
 
-struct NotificationView_PreViews: PreviewProvider {
-    static var previews: some View {
-        NotificationView()
-    }
-}
+//struct NotificationView_PreViews: PreviewProvider {
+//    static var previews: some View {
+//        NotificationView(dataHandler: DataHandler())
+//    }
+//}

@@ -10,7 +10,10 @@ import Foundation
 import SwiftUI
 
 struct ProfileView: View {
+    @ObservedObject var dataHandler: DataHandler
+    
     var body: some View {
+        
         NavigationView {
             VStack {
                 ProfileViewHeader()
@@ -31,8 +34,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(dataHandler: DataHandler())
+//    }
+//}

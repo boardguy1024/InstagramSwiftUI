@@ -14,6 +14,8 @@ struct SettingsView: View {
     @State var isPresented: Bool = false
     @State var image: Image?
     @State var username: String = ""
+    @State var uiImage: UIImage?
+
     var body: some View {
         VStack {
             HStack {
@@ -38,7 +40,7 @@ struct SettingsView: View {
             Spacer()
             Button(action: self.submit, label: { Text("Logout").bold().foregroundColor(Color.white).frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60, alignment: .center).background(Color.red).cornerRadius(10).padding()})
         }.sheet(isPresented: self.$isPresented, content: {
-            ImagePicker(isShown: self.$isPresented, image: self.$image)
+            ImagePicker(isShown: self.$isPresented, image: self.$image, uiImage: self.$uiImage)
         })
     }
     

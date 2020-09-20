@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PostCell: View {
     var aspectRatio: CGFloat = 1.4998724
-    
+    var currnetPost: Post
     var body: some View {
         VStack {
             VStack {
@@ -23,19 +23,19 @@ struct PostCell: View {
                     
                     VStack (alignment: .leading) {
                         Text("Park kyung suk")
-                        Text("One Hour ago").font(.caption).foregroundColor(.gray)
+                        Text(currnetPost.date?.formatData() ?? "").font(.caption).foregroundColor(.gray)
                     }
                     Spacer()
                 }.padding()
                 Divider().padding(.horizontal)
-                Text("falskehfkasuhfkhskfhaksehfkuaeshflkuahslkefhaksehflkashefkuharghokefslejfhefkhekshffaslijfealjgliejflj").lineLimit(nil).padding()
+                Text(self.currnetPost.comment).lineLimit(nil).padding()
             }.background(Color.white).cornerRadius(20).shadow(radius: 10).padding()
         }
     }
 }
 
-struct PostCell_Preview: PreviewProvider {
-    static var previews: some View {
-        PostCell()
-    }
-}
+//struct PostCell_Preview: PreviewProvider {
+//    static var previews: some View {
+//        PostCell(currnetPost: <#T##Post#>)
+//    }
+//}

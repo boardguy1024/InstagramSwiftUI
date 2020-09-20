@@ -14,17 +14,20 @@ class ImagePickerCordinator : NSObject, UINavigationControllerDelegate, UIImageP
     
     @Binding var isShown    : Bool
     @Binding var image      : Image?
+    @Binding var uiImage    : UIImage?
     
-    init(isShown : Binding<Bool>, image: Binding<Image?>) {
+    init(isShown : Binding<Bool>, image: Binding<Image?>, uiImage: Binding<UIImage?>) {
         _isShown = isShown
         _image   = image
+        _uiImage = uiImage
     }
     
     //Selected Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        image = Image(uiImage: uiImage)
-        isShown = false
+        self.image = Image(uiImage: uiImage)
+        self.uiImage = uiImage
+        self.isShown = false
     }
     
     //Image selection got cancel
@@ -37,13 +40,14 @@ struct ImagePicker : UIViewControllerRepresentable {
     
     @Binding var isShown    : Bool
     @Binding var image      : Image?
+    @Binding var uiImage    : UIImage?
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
         
     }
     
     func makeCoordinator() -> ImagePickerCordinator {
-        return ImagePickerCordinator(isShown: $isShown, image: $image)
+        return ImagePickerCordinator(isShown: $isShown, image: $image, uiImage: $uiImage)
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {

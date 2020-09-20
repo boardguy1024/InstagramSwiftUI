@@ -13,10 +13,10 @@ var exampleDataList = [PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),
 
 struct ExploreView: View {
     
-    
-    
     @State var isSearching: Bool = false
     @State var searchText = String()
+    @ObservedObject var dataHandler: DataHandler
+    
     var body: some View {
         
         NavigationView {
@@ -30,9 +30,10 @@ struct ExploreView: View {
                 if isSearching {
                     
                     List {
-                        ForEach(0 ..< 3, content: { i in
-                            PostCell().listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                        })
+                        
+                        ForEach(self.dataHandler.homePagePosts, id: \.id) { post in
+                            PostCell(currnetPost: post).listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        }
                     }
                     
                 } else {
@@ -66,8 +67,8 @@ struct PostIdentifiable: Identifiable {
     var image = Image("test").resizable()
 }
 
-struct ExploreView_Preview: PreviewProvider {
-    static var previews: some View {
-        ExploreView()
-    }
-}
+//struct ExploreView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        ExploreView(dataHandler: DataHandler())
+//    }
+//}

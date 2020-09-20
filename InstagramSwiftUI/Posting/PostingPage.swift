@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import RealmSwift
 
 struct PostingView: View {
     
@@ -48,22 +50,53 @@ struct PostingView: View {
             // ScrollViewに対して.sheetを設定しておく
             // BindしているisPresentedの値がtrueになったら、contentのImagePickerを表示させる
         }.sheet(isPresented: self.$isPresented, content: {
-            ImagePicker(isShown: self.$isPresented, image: self.$image)
+            ImagePicker(isShown: self.$isPresented, image: self.$image, uiImage: self.$uiImage)
         })
         
     }
     
     func submit() {
         
+        
+        guard let imageData = self.uiImage?.jpegData(compressionQuality: 0.1) else { return }
+        let postId = UUID().uuidString
+        
+        let ref = Storage.storage().reference().child("posts").child(postId)
+        ref.putData(imageData, metadata: nil) { (data, error) in
+            
+            if error == nil {
+                ref.downloadURL { (url, error) in
+                    
+                    if error == nil {
+                        
+                        let imageHeight = self.uiImage?.size.height ?? 0.0
+                        let imageWidth = self.uiImage?.size.width ?? 0.0
+                        let aspectRatio = Double(imageHeight / imageWidth)
+                        Database.database() .reference().child("posts").child(postId)
+                            .updateChildValues(["imageUrl": url?.absoluteString ?? "",
+                                                "id": postId,
+                                                "comment": self.description,
+                                                "aspectRatio": aspectRatio,
+                                                "date": Date().iso8601])
+                    } else {
+                        print(error)
+                    }
+                    
+                }
+            } else {
+                print(error)
+            }
+            
+        }
     }
     
     func choosePhoto() {
         self.isPresented.toggle()
     }
 }
-
-struct PostingView_Preview: PreviewProvider {
-    static var previews: some View {
-        PostingView()
-    }
-}
+//
+//struct PostingView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        PostingView()
+//    }
+//}

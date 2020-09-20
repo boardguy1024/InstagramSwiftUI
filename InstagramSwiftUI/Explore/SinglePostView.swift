@@ -12,7 +12,7 @@ import SwiftUI
 struct SinglePostView: View {
     var body: some View {
         List {
-            PostCell().listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            PostCell(currnetPost: Post()).listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }
