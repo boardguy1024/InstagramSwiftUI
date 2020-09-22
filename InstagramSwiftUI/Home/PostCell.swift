@@ -12,12 +12,13 @@ import SwiftUI
 struct PostCell: View {
     var aspectRatio: CGFloat = 1.4998724
     var currnetPost: Post
+    @Environment(\.imageCache) var cache: ImageCache
     var body: some View {
         VStack {
             VStack {
-                Image("test")
-                    .resizable()
-                    .frame(height: UIScreen.main.bounds.width * aspectRatio, alignment: .center)
+                if let url = URL(string: self.currnetPost.imageUrl) {
+                    AsyncImage(url: url, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).frame(height: (UIScreen.main.bounds.width - 20) * CGFloat(currnetPost.aspectRatio), alignment: .center)
+                }
                 HStack {
                     Image("test").resizable().frame(width: 50, height: 50, alignment: .center).cornerRadius(25)
                     
@@ -28,7 +29,7 @@ struct PostCell: View {
                     Spacer()
                 }.padding()
                 Divider().padding(.horizontal)
-                Text(self.currnetPost.comment).lineLimit(nil).padding()
+                Text(self.currnetPost.comment).lineLimit(nil).padding().frame(maxWidth: .infinity, alignment: .leading)
             }.background(Color.white).cornerRadius(20).shadow(radius: 10).padding()
         }
     }

@@ -26,6 +26,10 @@
 		A20620C524AD7A1E00C91BCF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20620C424AD7A1E00C91BCF /* ImagePicker.swift */; };
 		A25CAD432516D3E20008A747 /* PublicExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD422516D3E20008A747 /* PublicExtenstions.swift */; };
 		A25CAD452516DBE60008A747 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD442516DBE60008A747 /* DataHandler.swift */; };
+		A25CAD4A25198EFA0008A747 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD4625198EFA0008A747 /* ImageLoader.swift */; };
+		A25CAD4B25198EFA0008A747 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD4725198EFA0008A747 /* ImageCache.swift */; };
+		A25CAD4C25198EFA0008A747 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD4825198EFA0008A747 /* AsyncImage.swift */; };
+		A25CAD4D25198EFA0008A747 /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CAD4925198EFA0008A747 /* EnvironmentValues+ImageCache.swift */; };
 		A2BE186824B2A4A800483CE5 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE186724B2A4A800483CE5 /* LoginPage.swift */; };
 		A2BE186A24B2AA6B00483CE5 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE186924B2AA6B00483CE5 /* SignUpPage.swift */; };
 		A2BE186C24B2B34D00483CE5 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE186B24B2B34D00483CE5 /* TabViewController.swift */; };
@@ -60,6 +64,10 @@
 		A20620C424AD7A1E00C91BCF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A25CAD422516D3E20008A747 /* PublicExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicExtenstions.swift; sourceTree = "<group>"; };
 		A25CAD442516DBE60008A747 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		A25CAD4625198EFA0008A747 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		A25CAD4725198EFA0008A747 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A25CAD4825198EFA0008A747 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		A25CAD4925198EFA0008A747 /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
 		A2BE186724B2A4A800483CE5 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		A2BE186924B2AA6B00483CE5 /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
 		A2BE186B24B2B34D00483CE5 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				A20620A624AC5A8000C91BCF /* Info.plist */,
 				A20620A024AC5A8000C91BCF /* Preview Content */,
 				A2BE186B24B2B34D00483CE5 /* TabViewController.swift */,
+				A25CAD4E25198F160008A747 /* AsyncImage */,
 				A2F4A7EC24B6C28900D0B553 /* RealmObjects.swift */,
 				A25CAD422516D3E20008A747 /* PublicExtenstions.swift */,
 				A25CAD442516DBE60008A747 /* DataHandler.swift */,
@@ -196,6 +205,17 @@
 				A20620B624AC5C6200C91BCF /* SettingsPage.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A25CAD4E25198F160008A747 /* AsyncImage */ = {
+			isa = PBXGroup;
+			children = (
+				A25CAD4825198EFA0008A747 /* AsyncImage.swift */,
+				A25CAD4925198EFA0008A747 /* EnvironmentValues+ImageCache.swift */,
+				A25CAD4725198EFA0008A747 /* ImageCache.swift */,
+				A25CAD4625198EFA0008A747 /* ImageLoader.swift */,
+			);
+			path = AsyncImage;
 			sourceTree = "<group>";
 		};
 		A2BE186624B2A48F00483CE5 /* Login */ = {
@@ -336,18 +356,22 @@
 				A20620C524AD7A1E00C91BCF /* ImagePicker.swift in Sources */,
 				A20620B724AC5C6200C91BCF /* SettingsPage.swift in Sources */,
 				A2F4A7ED24B6C28900D0B553 /* RealmObjects.swift in Sources */,
+				A25CAD4C25198EFA0008A747 /* AsyncImage.swift in Sources */,
 				A20620C324AD6FE900C91BCF /* MultilineTextView.swift in Sources */,
 				A206209924AC5A7D00C91BCF /* AppDelegate.swift in Sources */,
 				A2BE186C24B2B34D00483CE5 /* TabViewController.swift in Sources */,
 				A2F3209824B19FE9004E1B78 /* ProfileViewHeader.swift in Sources */,
 				A20620B124AC5C1300C91BCF /* PostingPage.swift in Sources */,
 				A20620B524AC5C4900C91BCF /* ProfilePage.swift in Sources */,
+				A25CAD4D25198EFA0008A747 /* EnvironmentValues+ImageCache.swift in Sources */,
 				A25CAD432516D3E20008A747 /* PublicExtenstions.swift in Sources */,
 				A25CAD452516DBE60008A747 /* DataHandler.swift in Sources */,
 				A2F3209624B18A67004E1B78 /* NotificationCell.swift in Sources */,
 				A20620C124AD604200C91BCF /* Grid.swift in Sources */,
+				A25CAD4A25198EFA0008A747 /* ImageLoader.swift in Sources */,
 				A206209B24AC5A7D00C91BCF /* SceneDelegate.swift in Sources */,
 				A206209D24AC5A7D00C91BCF /* ContentView.swift in Sources */,
+				A25CAD4B25198EFA0008A747 /* ImageCache.swift in Sources */,
 				A20620AF24AC5BFA00C91BCF /* ExplorePage.swift in Sources */,
 				A20620B324AC5C2F00C91BCF /* NotificationPage.swift in Sources */,
 				A20620AD24AC5BE900C91BCF /* HomePage.swift in Sources */,
