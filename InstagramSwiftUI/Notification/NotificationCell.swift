@@ -13,7 +13,7 @@ struct NotificationCell: View {
     var body: some View {
         VStack {
             HStack (alignment: .top) {
-                NavigationLink(destination: SinglePostView(), label: {
+                NavigationLink(destination: SinglePostView(currnetPost: Post()), label: {
                     Image("test").resizable().aspectRatio(contentMode: .fill).frame(width: 50, height: 50, alignment: .center).cornerRadius(5)
                     VStack (alignment: .leading) {
                         Text("Park like your post").font(.callout)

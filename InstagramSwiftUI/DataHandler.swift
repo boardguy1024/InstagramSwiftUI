@@ -12,9 +12,10 @@ import Firebase
 
 class DataHandler: ObservableObject {
     @Published var homePagePosts = [Post]()
-    
+    @Published var explorePagePosts = [PostIdentifiable]()
     init() {
         self.loadHomePagePosts()
+        self.loadExplorePagePosts()
     }
     
     func loadHomePagePosts() {
@@ -28,6 +29,18 @@ class DataHandler: ObservableObject {
                 self.homePagePosts.sort { (post1, post2) -> Bool in
                     post1.date!.compare(post2.date!) == .orderedDescending
                 }
+            }
+        }
+    }
+    
+    func loadExplorePagePosts() {
+        let ref = Database.database().reference()
+        ref.child("posts").observe(.value) { (snapshot) in
+            
+            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+                
+                guard let dict = snap.value as? [String: AnyObject] else { return }
+                self.explorePagePosts.append(PostIdentifiable(post: handlePostDict(dict)))
             }
         }
     }

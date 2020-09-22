@@ -9,14 +9,13 @@
 import Foundation
 import SwiftUI
 
-var exampleDataList = [PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable(),PostIdentifiable()]
-
 struct ExploreView: View {
     
     @State var isSearching: Bool = false
     @State var searchText = String()
     @ObservedObject var dataHandler: DataHandler
-    
+    @Environment(\.imageCache) var cache: ImageCache
+
     var body: some View {
         
         NavigationView {
@@ -37,10 +36,13 @@ struct ExploreView: View {
                     }
                     
                 } else {
-                    QGrid(exampleDataList, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
+                    QGrid(dataHandler.explorePagePosts, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
                         
-                        NavigationLink(destination: SinglePostView(), label:  {
-                            post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
+                        NavigationLink(destination: SinglePostView(currnetPost: post.post), label:  {
+                            
+                            if let url = URL(string: post.post.imageUrl) {
+                                AsyncImage(url: url, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
+                            }
                         }).buttonStyle(PlainButtonStyle())
                         
     
@@ -63,8 +65,7 @@ struct ExploreView: View {
 
 struct PostIdentifiable: Identifiable {
     var id = UUID()
-    
-    var image = Image("test").resizable()
+    var post: Post
 }
 
 //struct ExploreView_Preview: PreviewProvider {

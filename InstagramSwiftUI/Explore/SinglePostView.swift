@@ -10,15 +10,16 @@ import Foundation
 import SwiftUI
 
 struct SinglePostView: View {
+    var currnetPost: Post
     var body: some View {
         List {
-            PostCell(currnetPost: Post()).listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            PostCell(currnetPost: self.currnetPost).listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }
 
 struct SinglePostView_Preview: PreviewProvider {
     static var previews: some View {
-        SinglePostView()
+        SinglePostView(currnetPost: Post())
     }
 }
