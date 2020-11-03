@@ -21,7 +21,7 @@ struct ExploreView: View {
         NavigationView {
             VStack {
                 TextField("Search.....", text: self.$searchText, onEditingChanged: { changed in
-                    
+                    print("changedText: \(changed)")
                 }) {
                     self.search()
                 }.padding()
@@ -30,22 +30,20 @@ struct ExploreView: View {
                     
                     List {
                         
-                        ForEach(self.dataHandler.homePagePosts, id: \.id) { post in
+                        ForEach(self.dataHandler.searchPosts, id: \.id) { post in
                             PostCell(currnetPost: post).listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         }
                     }
                     
                 } else {
                     QGrid(dataHandler.explorePagePosts, columns: 3, columnsInLandscape: nil, vSpacing: 0, hSpacing: 0, vPadding: 0, hPadding: 0, isScrollable: true, showScrollIndicators: false) { post in
-                        
                         NavigationLink(destination: SinglePostView(currnetPost: post.post), label:  {
                             
-                            if let url = URL(string: post.post.imageUrl) {
-                                AsyncImage(url: url, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
-                            }
+                            
+                            AsyncImage(url: URL(string: post.post.imageUrl)!, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
                         }).buttonStyle(PlainButtonStyle())
                         
-    
+                        
                         
                     }
                 }
@@ -59,6 +57,7 @@ struct ExploreView: View {
             self.isSearching = false
         } else {
             self.isSearching = true
+            self.dataHandler.loadPostsFrom(self.searchText)
         }
     }
 }

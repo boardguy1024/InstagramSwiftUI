@@ -13,6 +13,8 @@ import Firebase
 class DataHandler: ObservableObject {
     @Published var homePagePosts = [Post]()
     @Published var explorePagePosts = [PostIdentifiable]()
+    @Published var searchPosts = [Post]()
+    
     init() {
         self.loadHomePagePosts()
         self.loadExplorePagePosts()
@@ -41,6 +43,19 @@ class DataHandler: ObservableObject {
                 
                 guard let dict = snap.value as? [String: AnyObject] else { return }
                 self.explorePagePosts.append(PostIdentifiable(post: handlePostDict(dict)))
+            }
+        }
+    }
+    
+    func loadPostsFrom(_ keyword: String) {
+        let ref = Database.database().reference()
+        print("my SearchTerms: \(keyword)")
+        ref.child("posts").queryOrdered(byChild: "searchTerms/\(keyword)").queryEqual(toValue: true).observeSingleEvent(of: .value) { snapshot in
+            
+            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+                print("snapValue: \(snap.value)")
+                guard let dict = snap.value as? [String: AnyObject] else { return }
+                self.searchPosts.append(handlePostDict(dict))
             }
         }
     }

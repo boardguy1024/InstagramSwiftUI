@@ -16,9 +16,7 @@ struct PostCell: View {
     var body: some View {
         VStack {
             VStack {
-                if let url = URL(string: self.currnetPost.imageUrl) {
-                    AsyncImage(url: url, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).frame(height: (UIScreen.main.bounds.width - 20) * CGFloat(currnetPost.aspectRatio), alignment: .center)
-                }
+                AsyncImage(url: URL(string: self.currnetPost.imageUrl)!, cache: self.cache, placeholder: Color.init(red: 0.9, green: 0.9, blue: 0.9), configuration: {$0.resizable()}).frame(height: (UIScreen.main.bounds.width - 20) * CGFloat(currnetPost.aspectRatio), alignment: .center)
                 HStack {
                     Image("test").resizable().frame(width: 50, height: 50, alignment: .center).cornerRadius(25)
                     

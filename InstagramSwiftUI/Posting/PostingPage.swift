@@ -72,12 +72,21 @@ struct PostingView: View {
                         let imageHeight = self.uiImage?.size.height ?? 0.0
                         let imageWidth = self.uiImage?.size.width ?? 0.0
                         let aspectRatio = Double(imageHeight / imageWidth)
+                        
+                        var searchTerms = [String: Bool]()
+                        
+                        //文章のスペースを区切りに単語を切り取って検索できるように配列をポストする
+                        for word in self.description.components(separatedBy: " ") {
+                            searchTerms[word.lowercased()] = true
+                        }
+                        
                         Database.database() .reference().child("posts").child(postId)
                             .updateChildValues(["imageUrl": url?.absoluteString ?? "",
                                                 "id": postId,
                                                 "comment": self.description,
                                                 "aspectRatio": aspectRatio,
-                                                "date": Date().iso8601])
+                                                "date": Date().iso8601,
+                                                "searchTerms:": searchTerms])
                     } else {
                         print(error)
                     }
