@@ -14,7 +14,7 @@ class DataHandler: ObservableObject {
     @Published var homePagePosts = [Post]()
     @Published var explorePagePosts = [PostIdentifiable]()
     @Published var searchPosts = [Post]()
-    
+    @Published var loggedInUser = UserObject()
     init() {
         self.loadHomePagePosts()
         self.loadExplorePagePosts()
@@ -59,6 +59,25 @@ class DataHandler: ObservableObject {
             }
         }
     }
+    
+    func checkIfLoggedIn(completion: @escaping (_ isLoggedIn: Bool) -> ()) {
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            completion(false)
+            return
+        }
+        
+        if uiRealm.object(ofType: UserObject.self, forPrimaryKey: userId) != nil {
+           let ref = Database.database().reference().child("users")
+            ref.child(userId).observeSingleEvent(of: .value) { (snapshot) in
+                guard let dict = snapshot.value as? [String: AnyObject] else { return }
+                self.loggedInUser = handleUserDict(dict)
+                completion(true)
+            }
+        } else {
+            completion(false)
+        }
+    }
 }
 
 func handlePostDict(_ dict: [String: AnyObject]) -> Post {
@@ -73,3 +92,15 @@ func handlePostDict(_ dict: [String: AnyObject]) -> Post {
     post.writeToRealm()
     return post
 }
+
+func handleUserDict(_ dict: [String: AnyObject]) -> UserObject {
+    let user = UserObject()
+    
+    user.id = dict["uid"] as? String ?? ""
+    user.username = dict["username"] as? String ?? ""
+    user.writeToRealm()
+    return user
+}
+
+
+

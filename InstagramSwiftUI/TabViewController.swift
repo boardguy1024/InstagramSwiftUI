@@ -11,9 +11,7 @@ import SwiftUI
 
 struct TabViewController: View {
     
-    // EnvironmentObjectとは
-    // アプリ全体で共有のプロパティとなる（複数のViewから参照できる）
-    @EnvironmentObject var dataHandler: DataHandler
+    @ObservedObject var dataHandler: DataHandler
     
     var body: some View {
         TabView {

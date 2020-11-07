@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct SignUpView: View {
     
@@ -47,6 +48,25 @@ struct SignUpView: View {
         //親ビューで持っているIsPresentedをBindingして
         //子ビューにて値を変更してSheetを閉じさせるため
         self.isPresented.toggle()
+        
+        if password1 == password2 {
+            Auth.auth().createUser(withEmail: self.email, password: self.password1) { (result, error) in
+                if error == nil {
+                    let user = UserObject()
+                    user.id = result?.user.uid ?? ""
+                    user.username = self.username
+                    user.isLoggedIn.value = true
+                    user.writeToRealm()
+                    
+                    let ref = Database.database().reference().child("users")
+                    ref.child(user.id).updateChildValues(["uid": user.id,
+                                                          "username": self.username])
+                }
+                else {
+                    print(error)
+                }
+            }
+        }
     }
 }
 

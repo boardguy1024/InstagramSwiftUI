@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import Realm
 
 struct LoginView: View {
     
@@ -26,6 +28,10 @@ struct LoginView: View {
             TextField("Email", text: self.$email).padding()
             SecureField("Password", text: self.$password).padding()
             
+            Button(action: self.login) {
+                Text("login").bold().foregroundColor(.white).frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: 50, alignment: .center)
+                }.background(Color.blue).cornerRadius(10).padding()
+            
             HStack {
                 Text("Don't have an account?")
                 Button(action: self.signUp, label: {
@@ -38,6 +44,19 @@ struct LoginView: View {
         })
     }
     
+    func login() {
+        Auth.auth().signIn(withEmail: self.email, password: self.password) { (result, error) in
+            if error == nil {
+                let user = UserObject()
+                user.id = result?.user.uid ?? ""
+                user.isLoggedIn.value = true
+                user.writeToRealm()
+            }
+            else {
+                print(error)
+            }
+        }
+    }
     func signUp() {
         self.isPresented.toggle()
     }

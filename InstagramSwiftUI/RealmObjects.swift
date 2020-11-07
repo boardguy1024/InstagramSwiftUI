@@ -29,4 +29,8 @@ class UserObject: Object {
     @objc dynamic var profileImageUrl: String = ""
     var isLoggedIn =  RealmOptional<Bool>()
     var isFollowing = RealmOptional<Bool>()
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
 }
