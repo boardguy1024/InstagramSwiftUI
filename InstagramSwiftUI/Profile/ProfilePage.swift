@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var dataHandler: DataHandler
-    
+    @Binding var isLoggedIn: Bool
     var body: some View {
         
         NavigationView {
@@ -23,7 +23,7 @@ struct ProfileView: View {
 //                          post.image.aspectRatio(contentMode: .fill).frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3, alignment: .center).clipped()
 //                        }).buttonStyle(PlainButtonStyle())
 //                }
-            }.navigationBarItems(trailing: NavigationLink(destination: SettingsView(), label: {
+            }.navigationBarItems(trailing: NavigationLink(destination: SettingsView(isLoggedIn: self.$isLoggedIn), label: {
                 Image("ic-menu").resizable().frame(width: 20, height: 20, alignment: .center).accentColor(.black)
             })).navigationBarTitle("Profile", displayMode: .inline)
         }

@@ -20,27 +20,22 @@ struct LoadingView: View {
     var body: some View {
         Group {
             if isViewLoaded {
-                
                 if isLoggedIn {
                     // HomeView
-                    TabViewController(dataHandler: dataHandler)
+                    TabViewController(dataHandler: dataHandler, isLoggedIn: self.$isLoggedIn)
                 } else {
-                    LoginView()
+                    LoginView(isLoggedIn: self.$isLoggedIn)
                 }
-                
             } else {
                 Text("Instagram").bold().font(.largeTitle)
             }
-            
         }.onAppear() {
             self.dataHandler.checkIfLoggedIn { (isLoggedIn) in
-                
                 //スプラッシューっぽくInstagramテキストを少し見せるため
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.isLoggedIn = isLoggedIn
                     self.isViewLoaded = true
                 }
-                
             }
         }
     }

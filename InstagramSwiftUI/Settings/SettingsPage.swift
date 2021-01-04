@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
+import RealmSwift
 
 struct SettingsView: View {
     
@@ -16,6 +18,8 @@ struct SettingsView: View {
     @State var username: String = ""
     @State var uiImage: UIImage?
 
+    @Binding var isLoggedIn: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -38,7 +42,7 @@ struct SettingsView: View {
             
             Button(action: self.submit, label: { Text("Submit").bold().foregroundColor(Color.white).frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60, alignment: .center).background(Color.blue).cornerRadius(10).padding()})
             Spacer()
-            Button(action: self.submit, label: { Text("Logout").bold().foregroundColor(Color.white).frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60, alignment: .center).background(Color.red).cornerRadius(10).padding()})
+            Button(action: self.logout, label: { Text("Logout").bold().foregroundColor(Color.white).frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60, alignment: .center).background(Color.red).cornerRadius(10).padding()})
         }.sheet(isPresented: self.$isPresented, content: {
             ImagePicker(isShown: self.$isPresented, image: self.$image, uiImage: self.$uiImage)
         })
@@ -48,17 +52,20 @@ struct SettingsView: View {
         
     }
     
+    func logout() {
+        self.isLoggedIn = false
+        try! Auth.auth().signOut()
+        //削除するとログイン時にクラッシュが発生（Object has been deleted or invalidated.）
+//        try! uiRealm.write({            
+//             uiRealm.deleteAll()
+//        })
+    }
+    
     func submitNewUsername() {
         
     }
     
     func choosePhoto() {
         self.isPresented.toggle()
-    }
-}
-
-struct SettingsView_Preview: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
     }
 }

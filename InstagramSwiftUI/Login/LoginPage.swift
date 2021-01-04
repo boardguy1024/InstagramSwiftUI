@@ -17,6 +17,7 @@ struct LoginView: View {
     @State var password = String()
     @State var isPresented: Bool = false
     
+    @Binding var isLoggedIn: Bool
     var body: some View {
         VStack {
             ZStack {
@@ -51,6 +52,7 @@ struct LoginView: View {
                 user.id = result?.user.uid ?? ""
                 user.isLoggedIn.value = true
                 user.writeToRealm()
+                self.isLoggedIn = true
             }
             else {
                 print(error)
@@ -62,8 +64,3 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Preview: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}

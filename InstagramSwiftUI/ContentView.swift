@@ -9,13 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var isLoggedIn: Bool
     var body: some View {
-        TabViewController(dataHandler: DataHandler())
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        TabViewController(dataHandler: DataHandler(), isLoggedIn: self.$isLoggedIn)
     }
 }
